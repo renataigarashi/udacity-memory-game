@@ -123,4 +123,6 @@ $(".restart").click(function() {
   resetCards;
   $(".moves").html(moves);
   $(".modal").removeClass("show-modal");
+  $(".startwo").show();
+  $(".starthree").show();
 });
