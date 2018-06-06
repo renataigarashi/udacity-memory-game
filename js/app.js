@@ -29,8 +29,9 @@ function shuffle(cards) {
 // starts game and resets timer -- shuffling loop from https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript
 function startGame() {
   $(".card").removeClass("match", "show", "open");
-  timer.reset();
   timer.stop();
+  timer.start({precision: 'seconds', startValues: {seconds: 90}, target: {seconds: 120}});
+timer.pause();
   var shuffledDeck = shuffle(cards);
   for (var i = 0; i < shuffledDeck.length; i++) {
     [].forEach.call(shuffledDeck, function(item) {
@@ -125,7 +126,7 @@ timer.addEventListener("secondsUpdated", function(e) {
 //restart button functionality
 $(".restart").click(function() {
   startGame();
-  resetCards;
+  resetCards();
   $(".moves").html(moves);
   $(".modal").removeClass("show-modal");
   $(".star-two").show();
