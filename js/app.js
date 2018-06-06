@@ -72,7 +72,6 @@ deck.addEventListener("click", function(event) {
     } else {
       pickTwo = picks.dataset.name;
       picks.classList.add("show", "open");
-      console.log(pickTwo);
     }
     if (pickOne !== "" && pickTwo !== "") {
       if (pickOne === pickTwo) {
@@ -87,21 +86,21 @@ deck.addEventListener("click", function(event) {
 // star rating determined by move count
 function starRating() {
   if (moves > 8) {
-    $(".starthree").hide();
+    $(".star-three").hide();
   }
   if (moves > 12) {
-    $(".startwo").hide();
+    $(".star-two").hide();
   }
 }
 //displays congrats modal when all cards are matched
 //modal based on tutorial: https://sabe.io/tutorials/how-to-create-modal-popup-box
 function modal() {
-  $(".starsmodal").html(function() {
+  $(".stars-modal").html(function() {
     if (moves > 8) {
-      $(".starthree").hide();
+      $(".star-three").hide();
     }
     if (moves > 12) {
-      $(".startwo").hide();
+      $(".star-two").hide();
     }
   });
   if ($(".match").length === 16) {
@@ -123,6 +122,6 @@ $(".restart").click(function() {
   resetCards;
   $(".moves").html(moves);
   $(".modal").removeClass("show-modal");
-  $(".startwo").show();
-  $(".starthree").show();
+  $(".star-two").show();
+  $(".star-three").show();
 });
