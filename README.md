@@ -9,3 +9,4 @@ Click two cards at a time and try to match pairs! Try to clear the whole board.
 - https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript 
 - https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/
 - https://sabe.io/tutorials/how-to-create-modal-popup-box
+- All game styling is starter code provided by Udacity for this project and used with permission.
