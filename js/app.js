@@ -30,6 +30,7 @@ function shuffle(cards) {
 function startGame() {
   $(".card").removeClass("match", "show", "open");
   moves = 0;
+  $(".values").html("00:00:00");
   var shuffledDeck = shuffle(cards);
   for (var i = 0; i < shuffledDeck.length; i++) {
     [].forEach.call(shuffledDeck, function(item) {
@@ -122,6 +123,7 @@ timer.addEventListener("secondsUpdated", function(e) {
 });
 //restart button functionality
 $(".restart").click(function() {
+  timer.stop();
   startGame();
   resetCards();
   $(".modal").removeClass("show-modal");
