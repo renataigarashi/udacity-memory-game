@@ -29,16 +29,13 @@ function shuffle(cards) {
 // starts game and resets timer -- shuffling loop from https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript
 function startGame() {
   $(".card").removeClass("match", "show", "open");
-  timer.stop();
-  timer.start({precision: 'seconds', startValues: {seconds: 90}, target: {seconds: 120}});
-timer.pause();
+  moves = 0;
   var shuffledDeck = shuffle(cards);
   for (var i = 0; i < shuffledDeck.length; i++) {
     [].forEach.call(shuffledDeck, function(item) {
       deck.appendChild(item);
     });
   }
-  moves = 0;
 }
 window.onload = startGame();
 // adds match class to cards
@@ -66,9 +63,9 @@ const resetCards = () => {
 // matches cards based on their name attribute and resets if no matches are made.
 deck.addEventListener("click", function(event) {
   let picks = event.target;
-  if (picks.nodeName === 'UL' || picks === previousTarget) {
-  return;
-}
+  if (picks === previousTarget) {
+    return;
+  }
   timer.start();
   if (selectedCards < 2) {
     selectedCards++;
@@ -127,8 +124,9 @@ timer.addEventListener("secondsUpdated", function(e) {
 $(".restart").click(function() {
   startGame();
   resetCards();
-  $(".moves").html(moves);
   $(".modal").removeClass("show-modal");
   $(".star-two").show();
   $(".star-three").show();
+  moves = 0;
+  $(".moves").html(moves);
 });
