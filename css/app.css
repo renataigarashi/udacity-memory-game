@@ -127,6 +127,7 @@ h1 {
   transform: scale(1.1);
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
+
 .modal-content {
   position: absolute;
   top: 50%;
@@ -137,6 +138,7 @@ h1 {
   width: 24rem;
   border-radius: 0.5rem;
 }
+
 .close-button {
   float: right;
   width: 1.5rem;
@@ -146,9 +148,11 @@ h1 {
   border-radius: 0.25rem;
   background-color: lightgray;
 }
+
 .close-button:hover {
   background-color: darkgray;
 }
+
 .show-modal {
   opacity: 1;
   visibility: visible;
@@ -158,4 +162,25 @@ h1 {
 
 .restart {
   cursor: pointer;
+}
+
+@media (max-width: 680px) {
+  .deck {
+    width: 400px;
+  }
+
+  .deck .card {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+@media (max-width: 350px) {
+  .score-panel {
+    width: 100%;
+    padding: 10px;
+  }
+  .deck {
+    width: 320px;
+  }
 }
