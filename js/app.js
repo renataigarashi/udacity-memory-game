@@ -7,6 +7,8 @@ let pickTwo = "";
 let delay = 1000;
 let timer = new Timer();
 let moves = 0;
+let previousTarget = null;
+
 /* Display the cards on the page   - shuffle the list of cards using the provided "shuffle" method below   - loop through each card and create its HTML   - add each card's HTML to the page */
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(cards) {
@@ -63,6 +65,9 @@ const resetCards = () => {
 // matches cards based on their name attribute and resets if no matches are made.
 deck.addEventListener("click", function(event) {
   let picks = event.target;
+  if (picks.nodeName === 'UL' || picks === previousTarget) {
+  return;
+}
   timer.start();
   if (selectedCards < 2) {
     selectedCards++;
@@ -81,6 +86,7 @@ deck.addEventListener("click", function(event) {
         setTimeout(resetCards, delay);
       }
     }
+    previousTarget = picks;
   }
 });
 // star rating determined by move count
